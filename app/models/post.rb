@@ -20,6 +20,10 @@ class Post < ApplicationRecord
     end
   end
 
+  def index
+    @posts = Post.all
+  end
+
   private
 
   def require_login
