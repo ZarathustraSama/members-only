@@ -5,6 +5,10 @@ class Post < ApplicationRecord
 
   belongs_to :user
 
+  def new
+    @post = Post.new
+  end
+
   private
 
   def require_login
