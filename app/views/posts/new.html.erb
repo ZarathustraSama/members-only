@@ -1,5 +1,5 @@
 <%= form_with model: @post do |form| %>
-  <%= form.label :body, "Here goes your ideas!" %>
-  <%= form.text_area(:post, :body, cols: 10) %>
+  <%= form.label :body, "Here goes your idea!" %>
+  <%= form.text_area(:body) %>
   <%= form.submit "Post" %>
 <% end %>
