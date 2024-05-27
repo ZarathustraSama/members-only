@@ -1,0 +1,10 @@
+<% if @posts %>
+  <ul>
+    <% @posts.each do |post| %>
+      <li><%= post.body %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No posts yet</p>
+<% end %>
+<%= link_to "Create new post", "posts/new" %>
