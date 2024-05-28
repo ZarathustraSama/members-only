@@ -1,10 +1,20 @@
 <% if @posts %>
   <ul>
     <% @posts.each do |post| %>
-      <li><%= post.body %></li>
+      <div class="Post">
+        <% if user_signed_in? %>
+          <p><%= post.user.username %></p>
+        <% end %>
+        <li><%= post.body %></li>
+      </div>
     <% end %>
   </ul>
 <% else %>
   <p>No posts yet</p>
 <% end %>
-<%= link_to "Create new post", "posts/new" %>
+<% if user_signed_in? %>
+  <%= link_to "Create new post", new_post_path %><br />
+  <%= link_to "Log out", destroy_user_session_path, method: :delete, data: { turbo_method: :delete } %>
+<% else %>
+  <%= link_to "Log in", new_user_session_path %>
+<% end %>
